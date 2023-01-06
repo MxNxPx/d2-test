@@ -1,0 +1,74 @@
+comment: |md
+## Trying to use local images and have github render in diagram
+  
+|
+
+
+# Kubernetes
+k8s: {
+  label: K8s Cluster
+  style: {
+    fill: '#acd7e1'
+    stroke-width: 5
+    font-size: 20
+  }
+  ns: {
+    label: "Namespace"
+    style: {
+      fill: '#e1d7ac'
+      font-size: 20
+    }
+    pod: {
+      label: "Pod"
+      font-size: 10
+      shape: image
+      icon: images/pod.svg
+      width: 200
+      height: 200
+      link: 'https://kubernetes.io/docs/concepts/workloads/pods/'
+      }
+    svc: {
+      label: "Service"
+      font-size: 10
+      shape: image
+      icon: images/svc.svg
+      width: 200
+      height: 200
+      link: 'https://kubernetes.io/docs/concepts/services-networking/service/'
+      }
+    cm: {
+      label: "Config Map"
+      font-size: 10
+      shape: image
+      icon: images/cm.svg
+      width: 200
+      height: 200
+      link: 'https://kubernetes.io/docs/concepts/configuration/configmap/'
+      }
+  } 
+}
+
+# Kubernetes Cluster Components
+reg: {
+  label: Registry
+  style: {
+    fill: '#acd7e1'
+    stroke-width: 5
+    font-size: 20
+  }
+  image: {
+    label: "Container Image"
+    shape: image
+    icon: images/container-logo.svg
+    width: 200
+    height: 200
+    font-size: 10
+    link: 'https://kubernetes.io/docs/concepts/containers/images/'
+   }
+}
+
+
+# Arrows describing relationships
+k8s.ns.pod <-> reg.image
+k8s.ns.svc <-> k8s.ns.pod
+k8s.ns.cm <-> k8s.ns.pod
